@@ -9,8 +9,9 @@ fn main() -> io::Result<()> {
         println!("Usage: queue_test num_values");
     } else {
         let num_values = args[1].parse::<usize>().unwrap();
-        test(&mut VecDeque::new(), num_values, "VecDeque");
-        test(&mut LinkedList::new(), num_values, "LinkList");
+        test(&mut VecDeque::new(), num_values, "VecDeque         ");
+        test(&mut LinkedList::new(), num_values, "LinkedList       ");
+        test(&mut VecDeque::with_capacity(num_values), num_values, "VecDeque Reserved");
     }
     Ok(())
 }
